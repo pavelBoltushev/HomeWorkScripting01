@@ -5,21 +5,26 @@ using UnityEngine;
 public class HouseTrigger : MonoBehaviour
 {
     [SerializeField]
-    private AlarmLight alarmLight;
+    private AlarmLight _alarmLight;
     [SerializeField]
-    private AlarmSound alarmSound;
+    private AlarmSound _alarmSound;
+    private string _triggerTag = "Enemy";
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        alarmLight.Activate();
-        alarmSound.Activate();
-        Debug.Log("Triggered!");
+    {        
+        if (collision.tag == _triggerTag)
+        {
+            _alarmLight.Activate();
+            _alarmSound.Activate();
+        }               
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        alarmLight.Deactivate();
-        alarmSound.Deativate();
-        Debug.Log("ExitTrigger!");
+        if (collision.tag == _triggerTag)
+        {
+            _alarmLight.Deactivate();
+            _alarmSound.Deativate();
+        }              
     }    
 }

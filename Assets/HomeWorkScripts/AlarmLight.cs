@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class AlarmLight : MonoBehaviour
 {
     [SerializeField]
@@ -10,16 +11,16 @@ public class AlarmLight : MonoBehaviour
     private Color _color1;
     [SerializeField]
     private Color _color2;
-    private SpriteRenderer _alarmLight;    
+    private SpriteRenderer _spriteRenderer;    
     private float _timeCounter = 0;
     private bool _isBlinking = false;
 
     private void Start()
     {
-        _alarmLight = GetComponent<SpriteRenderer>();        
+        _spriteRenderer = GetComponent<SpriteRenderer>();        
     }
 
-    void Update()
+    private void Update()
     {
         if (_isBlinking)
         {
@@ -36,16 +37,14 @@ public class AlarmLight : MonoBehaviour
     public void Activate()
     {
         _isBlinking = true;
-        _alarmLight.color = _color1;
-        Debug.Log("Activated!");
+        _spriteRenderer.color = _color1;        
     }
 
     public void Deactivate()
     {
         _isBlinking = false;
         _timeCounter = 0;
-        _alarmLight.color = Color.white;
-        Debug.Log("Dectivated!");
+        _spriteRenderer.color = Color.white;        
     }
 
     private void ChangeColor()
@@ -53,6 +52,6 @@ public class AlarmLight : MonoBehaviour
         Color buffer = _color1;
         _color1 = _color2;
         _color2 = buffer;
-        _alarmLight.color = _color1;
+        _spriteRenderer.color = _color1;
     }
 }
