@@ -23,12 +23,12 @@ public class AlarmSound : MonoBehaviour
         if (_isVolumeChanging)
         {
             _audioSource.volume = Mathf.MoveTowards(_audioSource.volume, _targetVolume, _volumeChangeRate * Time.deltaTime);
-        }
 
-        if (_audioSource.volume == _minVolume)
-        {
-            _isVolumeChanging = false;
-        }        
+            if (_audioSource.volume == _minVolume || _audioSource.volume == _maxVolume)
+            {
+                _isVolumeChanging = false;
+            }
+        }            
     }
 
     public void Activate()
@@ -40,5 +40,6 @@ public class AlarmSound : MonoBehaviour
     public void Deativate()
     {
         _targetVolume = _minVolume;
+        _isVolumeChanging = true;
     }
 }
