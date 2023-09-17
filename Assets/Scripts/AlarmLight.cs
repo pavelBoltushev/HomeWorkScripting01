@@ -12,34 +12,38 @@ public class AlarmLight : MonoBehaviour
     private Color _color2;
     [SerializeField]
     private SpriteRenderer _lightRenderer;    
-    private float _timeCounter = 0;
-    private bool _isBlinking = false;    
+    private Coroutine _blinkLight;
 
-    private void Update()
+    public void Activate()
+    {        
+        _lightRenderer.color = _color1;
+        _blinkLight = StartCoroutine(BlinkLight());
+    }
+
+    public void Deactivate()
     {
-        if (_isBlinking)
+        if (_blinkLight != null)
+            StopCoroutine(_blinkLight);
+
+        _lightRenderer.color = Color.white;
+    }    
+    
+    private IEnumerator BlinkLight()
+    {
+        float _timeCounter = 0;
+
+        while (true)
         {
             _timeCounter += Time.deltaTime;
 
             if (_timeCounter > _blinkingPeriod)
             {
-                ChangeColor();                
+                ChangeColor();
                 _timeCounter = 0;
-            }            
-        }
-    }
+            }
 
-    public void Activate()
-    {
-        _isBlinking = true;
-        _lightRenderer.color = _color1;        
-    }
-
-    public void Deactivate()
-    {
-        _isBlinking = false;
-        _timeCounter = 0;
-        _lightRenderer.color = Color.white;        
+            yield return null;
+        }        
     }
 
     private void ChangeColor()

@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4002567d9273b1e4bacfee9f26cf8abe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _targetHouse: {fileID: 1321511549}
   _speed: 1.7
   _thiefMirror: {fileID: 1213474564, guid: a96b090f2c44c164380a713b73c09113, type: 3}
 --- !u!212 &911446249

@@ -6,6 +6,8 @@ using UnityEngine;
 public class Thief : MonoBehaviour
 {
     [SerializeField]
+    private GameObject _targetHouse;
+    [SerializeField]
     private float _speed;      
     [SerializeField]
     private Sprite _thiefMirror;
@@ -14,9 +16,8 @@ public class Thief : MonoBehaviour
     
 
     private void Start()
-    {         
-        var house = GameObject.Find("House");
-        _houseXPosition = house.transform.position.x;
+    {                 
+        _houseXPosition = _targetHouse.transform.position.x;
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
