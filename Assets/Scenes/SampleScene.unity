@@ -618,8 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1cb9cdb465aef4fa7b525d8ad80103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _alarmLight: {fileID: 1542297624}
-  _alarmSound: {fileID: 1542297623}
+  _alarm: {fileID: 1542297623}
 --- !u!50 &1321511554
 Rigidbody2D:
   serializedVersion: 4
@@ -815,7 +814,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1542297621}
   - component: {fileID: 1542297620}
-  - component: {fileID: 1542297624}
   - component: {fileID: 1542297623}
   - component: {fileID: 1542297622}
   m_Layer: 0
@@ -1043,23 +1041,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1542297618}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a818e1f2fefbacb4b8f74195727a462e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2460583eda003854eb21fbf587064eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _volumeChangeRate: 0.4
---- !u!114 &1542297624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542297618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd1101bc03c5e64cbc676c604acff3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   _blinkingPeriod: 0.5
-  _color1: {r: 0.0047169924, g: 0.30609077, b: 1, a: 1}
-  _color2: {r: 1, g: 0, b: 0.05374098, a: 1}
+  _color1: {r: 0.003921569, g: 0.30588236, b: 1, a: 1}
+  _color2: {r: 1, g: 0, b: 0.054901965, a: 1}
   _lightRenderer: {fileID: 1304448547}

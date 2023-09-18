@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
@@ -14,7 +12,6 @@ public class Thief : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private float _houseXPosition;
     
-
     private void Start()
     {                 
         _houseXPosition = _targetHouse.transform.position.x;
