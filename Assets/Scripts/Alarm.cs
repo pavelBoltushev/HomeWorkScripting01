@@ -2,14 +2,10 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class AlarmController : MonoBehaviour
+public class Alarm : MonoBehaviour
 {
     [SerializeField]
     private float _volumeChangeRate;
-    private AudioSource _audioSource;
-    private float _minVolume = 0f;
-    private float _maxVolume = 1f;
-    private Coroutine _volumeCoroutine;
     [SerializeField]
     private float _blinkingPeriod;
     [SerializeField]
@@ -18,7 +14,11 @@ public class AlarmController : MonoBehaviour
     private Color _color2;
     [SerializeField]
     private SpriteRenderer _lightRenderer;
+    private AudioSource _audioSource;
+    private Coroutine _volumeCoroutine;
     private Coroutine _lightCoroutine;
+    private float _minVolume = 0f;
+    private float _maxVolume = 1f;    
 
     private void Start()
     {
